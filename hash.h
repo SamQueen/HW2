@@ -6,3 +6,5 @@
 using namespace std;
 
 int hash_function(string text);
+
+public void printHash();
