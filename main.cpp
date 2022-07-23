@@ -11,7 +11,14 @@ Your team alias:
 #include "hash.h"
 using namespace std;
 
-int main() {
+struct Node
+{
+    string key;
+    struct Node* next;
+};
+
+int main() 
+{
 
     int k = 0;
     int n = 0;
@@ -22,7 +29,8 @@ int main() {
     string line;
     getline(cin, line);
 
-    while (getline(cin, line)) {
+    while (getline(cin, line)) 
+    {
         texts[n] = line;
         n++;
     }
@@ -37,8 +45,29 @@ int main() {
     // which puts out the placeholders only.
 
     // Your time to shine starts now
-
+    
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
+
+    //pointer to array
+    Node** head;
+
+    //fill with k node pointers
+    head = new Node * [k];
+
+    //fill hash table
+    int hash = 0;
+    for (int i = 0; i < n; i++) {
+        hash = hash_function(texts[i], k);
+        Node* newNode = new Node();
+        newNode->key = texts[i];
+        *(head + hash) = newNode;
+    }
+
+    for (int i = 0; i < k; i++) {
+        Node* temp = *(head + i);
+        cout << temp->key << endl;
+    }
+
 
     cout << "==== Printing the slot lengths ====" << endl;
 

@@ -4,7 +4,18 @@
 
 using namespace std;
 
-int hash_function(string text) {
+struct Node {
+    int data;
+    struct Node* Next;
+};
+
+int hash_function(string text, int k) {
     // Implement your own hash function here
-    return 1;
+    int ascii_value = 0;
+
+    for (int i = 0; i < text.length(); i++) {
+        ascii_value += int(text[i]);
+    }
+
+    return ascii_value % k;
 }
