@@ -100,6 +100,20 @@ int main()
 
     cout << "==== Printing the slot lengths ====" << endl;
 
+    for (int i = 0; i < k; i++) {
+        //select begining o flinked list
+        Node* temp = *(head + i);
+
+        cout << i << "-->\t";
+        int count = 0;
+        //continue until the current link list next node is null
+        while (temp != NULL) {
+            count++;
+            temp = temp->next;
+        }
+        cout << count << endl;
+    }
+
     cout << "==== Printing the standard variance =====" << endl;
 
     return 0;
