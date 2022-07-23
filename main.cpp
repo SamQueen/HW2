@@ -9,13 +9,8 @@ Your team alias:
 #include <iomanip>
 #include <string>
 #include "hash.h"
+#include "linked_list.h"
 using namespace std;
-
-struct Node
-{
-    string key;
-    struct Node* next;
-};
 
 int main() 
 {
@@ -44,7 +39,7 @@ int main()
     //   ./encoder < inputs/sample_input.txt
     // which puts out the placeholders only.
 
-    // Your time to shine starts now
+    // Your time to shine starts now-----------------------------------------
     
     //Create Hash Table as an array of pointers to linked lists
     // 
@@ -84,37 +79,16 @@ int main()
 
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
 
-    for (int i = 0; i < k; i++) {
-        //select begining o flinked list
-        Node* temp = *(head + i);
-        
-        cout << i << "-->\t";
-        
-        //continue until the current link list next node is null
-        while (temp != NULL) {
-            cout << temp->key << " ";
-            temp = temp->next;
-        }
-        cout << endl;
-    }
+    print_hash_table(head, k);
 
     cout << "==== Printing the slot lengths ====" << endl;
 
-    for (int i = 0; i < k; i++) {
-        //select begining o flinked list
-        Node* temp = *(head + i);
-
-        cout << i << "-->\t";
-        int count = 0;
-        //continue until the current link list next node is null
-        while (temp != NULL) {
-            count++;
-            temp = temp->next;
-        }
-        cout << count << endl;
-    }
+    print_slots(head, k);
 
     cout << "==== Printing the standard variance =====" << endl;
+
+    //TODO calulate the variance
+    cout << "Variance: " << endl;
 
     return 0;
 }
