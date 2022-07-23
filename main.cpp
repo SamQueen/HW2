@@ -46,28 +46,57 @@ int main()
 
     // Your time to shine starts now
     
-    cout << "==== Printing the contents of the first 5 slots ====" << endl;
-
+    //Create Hash Table as an array of pointers to linked lists
+    // 
     //pointer to array
     Node** head;
 
     //fill with k node pointers
     head = new Node * [k];
 
+    for (int i = 0; i < k; i++) {
+        *(head + i) = NULL;
+    }
+
     //fill hash table
     int hash = 0;
     for (int i = 0; i < n; i++) {
+        //send the word to the hash function
         hash = hash_function(texts[i], k);
+        //create new node and assign its key
         Node* newNode = new Node();
         newNode->key = texts[i];
-        *(head + hash) = newNode;
+        
+        //create node pointer
+        Node* selectedNode = *(head + hash);
+
+        //if the list is empty add node else aadd to end of list
+        if (selectedNode == NULL) {
+            *(head + hash) = newNode;
+        }
+        else {
+            while (selectedNode->next != NULL) {
+                selectedNode = selectedNode->next;
+            }
+            selectedNode->next = newNode;
+        }
     }
+
+    cout << "==== Printing the contents of the first 5 slots ====" << endl;
 
     for (int i = 0; i < k; i++) {
+        //select begining o flinked list
         Node* temp = *(head + i);
-        cout << temp->key << endl;
+        
+        cout << i << "-->\t";
+        
+        //continue until the current link list next node is null
+        while (temp != NULL) {
+            cout << temp->key << " ";
+            temp = temp->next;
+        }
+        cout << endl;
     }
-
 
     cout << "==== Printing the slot lengths ====" << endl;
 
