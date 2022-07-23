@@ -88,7 +88,7 @@ int main()
     cout << "==== Printing the standard variance =====" << endl;
 
     //TODO calulate the variance
-    cout << "Variance: " << endl;
+    cout << "Variance: " << var(head, k)  << endl;
 
     return 0;
 }

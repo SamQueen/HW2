@@ -12,4 +12,4 @@ void print_hash_table(Node** head, int k);
 
 void print_slots(Node** head, int k);
 
-int var(Node** head, int k);
+double var(Node** head, int k);
