@@ -4,12 +4,8 @@ A brief description of what this project does and who it's for
 
 ## Authors
 
-<<<<<<< HEAD
-- Samuel J Queen 
-=======
 - Samuel Queen
 - Javier Aguilar
->>>>>>> 1303277bd5a8cbdc9256728e5f3ac750861be41a
 
 ## Documentation
 
