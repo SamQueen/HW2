@@ -8,6 +8,7 @@ Your team alias:
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cmath>
 #include "hash.h"
 #include "linked_list.h"
 using namespace std;
@@ -88,7 +89,9 @@ int main()
     cout << "==== Printing the standard variance =====" << endl;
 
     //TODO calulate the variance
-    cout << "Variance: " << var(head, k)  << endl;
-
+    double variance = var(head, k);
+    double deviation = sqrt(variance);
+    cout << "Variance: " << variance  << endl;
+    cout << "Standard Deviation: " << deviation << endl;
     return 0;
 }
